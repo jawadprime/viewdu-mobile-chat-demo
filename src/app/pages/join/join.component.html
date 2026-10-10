@@ -1,0 +1,50 @@
+@if (session.userUuid(); as userId) {
+  <section class="card">
+    <div class="card-head">
+      <span class="label">Your Viewdu ID</span>
+      <button type="button" class="copy-button" aria-label="Copy your Viewdu ID" (click)="copyUserId(userId)">
+        {{ copied() ? 'Copied' : 'Copy' }}
+      </button>
+    </div>
+    <code class="user-id">{{ userId }}</code>
+  </section>
+}
+
+<form class="card" (submit)="$event.preventDefault(); onStart()">
+  <label class="label" for="participant-ids">Start a chat</label>
+  <input
+    id="participant-ids"
+    class="field"
+    type="text"
+    autocomplete="off"
+    autocapitalize="off"
+    spellcheck="false"
+    enterkeyhint="go"
+    placeholder="Viewdu ID of the other person"
+    [value]="participantIds()"
+    (input)="onParticipantIdsInput($event)"
+  />
+  @if (startError(); as message) {
+    <p class="error" role="alert">{{ message }}</p>
+  }
+  <button type="submit" class="vdu-button" [disabled]="starting() || !participantIds().trim()">
+    {{ starting() ? 'Starting…' : 'Start chat' }}
+  </button>
+</form>
+
+<form class="card" (submit)="$event.preventDefault(); onSubmit()">
+  <label class="label" for="thread-id">Join a chat</label>
+  <input
+    id="thread-id"
+    class="field"
+    type="text"
+    autocomplete="off"
+    autocapitalize="off"
+    spellcheck="false"
+    enterkeyhint="go"
+    placeholder="Paste the Thread ID"
+    [value]="threadId()"
+    (input)="onThreadIdInput($event)"
+  />
+  <button type="submit" class="vdu-button" [disabled]="!threadId().trim()">Join chat</button>
+</form>

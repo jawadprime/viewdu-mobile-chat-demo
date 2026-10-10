@@ -1,0 +1,71 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vdu-space-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vdu-space-3);
+  padding: var(--vdu-space-4);
+  border: 1px solid var(--vdu-color-border);
+  border-radius: var(--vdu-radius-md);
+  background: var(--vdu-color-surface);
+  box-shadow: var(--vdu-shadow-sm);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: var(--vdu-font-size-md);
+  font-weight: 600;
+  color: var(--vdu-color-text-muted);
+}
+
+.copy-button {
+  min-height: 2.5rem;
+  padding-inline: var(--vdu-space-4);
+  border: none;
+  border-radius: var(--vdu-radius-sm);
+  background: var(--vdu-color-surface-hover);
+  color: var(--vdu-color-primary);
+  font-weight: 600;
+}
+
+.user-id {
+  padding: var(--vdu-space-2) var(--vdu-space-3);
+  border-radius: var(--vdu-radius-sm);
+  background: var(--vdu-color-bg);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  word-break: break-all;
+  user-select: all;
+}
+
+.error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--vdu-color-danger);
+}
+
+.field {
+  height: 3rem;
+  border: 1px solid var(--vdu-color-border);
+  border-radius: var(--vdu-radius-md);
+  padding-inline: var(--vdu-space-3);
+  font: inherit;
+  font-size: 1rem;
+  color: var(--vdu-color-text);
+  background: var(--vdu-color-bg);
+}
+
+.field:focus-visible,
+.copy-button:focus-visible {
+  outline: 2px solid var(--vdu-color-primary);
+  outline-offset: 1px;
+}
