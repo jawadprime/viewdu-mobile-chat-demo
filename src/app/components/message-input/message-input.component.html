@@ -1,0 +1,34 @@
+<form class="input-row" (submit)="$event.preventDefault(); onSubmit()">
+  <input
+    class="field"
+    type="text"
+    autocomplete="off"
+    enterkeyhint="send"
+    placeholder="Message"
+    aria-label="Message"
+    [value]="draft()"
+    (input)="onDraftInput($event)"
+  />
+  <!-- Keeps the keyboard open when tapping Send. -->
+  <button
+    type="submit"
+    class="send-button"
+    aria-label="Send"
+    [disabled]="!draft().trim()"
+    (pointerdown)="$event.preventDefault()"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M22 2L11 13" />
+      <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+    </svg>
+  </button>
+</form>

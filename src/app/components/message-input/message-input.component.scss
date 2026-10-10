@@ -1,0 +1,49 @@
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vdu-space-2);
+  padding: var(--vdu-space-2) var(--vdu-space-3) calc(var(--vdu-space-2) + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--vdu-color-border);
+  background: var(--vdu-color-surface);
+}
+
+// min-width: 0 lets the field shrink instead of pushing Send off the screen.
+.field {
+  flex: 1;
+  min-width: 0;
+  height: 2.75rem;
+  border: 1px solid var(--vdu-color-border);
+  border-radius: var(--vdu-radius-full);
+  padding-inline: var(--vdu-space-4);
+  font: inherit;
+  // 16px stops the zoom on focus.
+  font-size: 1rem;
+  color: var(--vdu-color-text);
+  background: var(--vdu-color-bg);
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--vdu-color-primary);
+  outline-offset: 1px;
+}
+
+.send-button {
+  flex: 0 0 2.75rem;
+  display: grid;
+  place-items: center;
+  height: 2.75rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--vdu-color-primary);
+  color: var(--vdu-color-primary-contrast);
+  transition: opacity var(--vdu-motion-fast) var(--vdu-easing-standard);
+}
+
+.send-button:disabled {
+  opacity: 0.4;
+}
+
+.send-button:focus-visible {
+  outline: 2px solid var(--vdu-color-primary);
+  outline-offset: 2px;
+}

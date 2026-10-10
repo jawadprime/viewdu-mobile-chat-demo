@@ -1,0 +1,9 @@
+<div class="viewport" #viewport>
+  @for (message of messages(); track message.id; let i = $index) {
+    <app-message-item
+      [message]="message"
+      [isRead]="readMessageIds().has(message.id)"
+      [showName]="isFirstMessageFromSender(i)"
+    />
+  }
+</div>

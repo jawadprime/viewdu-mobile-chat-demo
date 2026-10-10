@@ -1,0 +1,15 @@
+<div class="row" [class.own]="message().isOwnMessage">
+  @if (showName() && !message().isOwnMessage) {
+    <span class="name">{{ message().senderDisplayName }}</span>
+  }
+
+  <div class="bubble">
+    <p class="content">{{ message().content }}</p>
+    <span class="meta">
+      {{ message().createdOn | date: 'shortTime' }}
+      @if (message().isOwnMessage && isRead()) {
+        <span class="seen">· Seen</span>
+      }
+    </span>
+  </div>
+</div>
