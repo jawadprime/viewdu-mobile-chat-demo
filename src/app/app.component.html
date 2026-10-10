@@ -1,0 +1,23 @@
+@if (threadId(); as id) {
+  <app-chat-container [threadId]="id" (leave)="closeChat()" />
+} @else {
+  <main class="screen">
+    <h1>Viewdu Chat</h1>
+
+    @switch (signInState()) {
+      @case ('signing-in') {
+        <p class="state" role="status">Signing you in…</p>
+      }
+      @case ('failed') {
+        <div class="state error" role="alert">
+          <p>Couldn't sign you in.</p>
+          <p class="detail">{{ signInError() }}</p>
+          <button type="button" class="vdu-button" (click)="signIn()">Try again</button>
+        </div>
+      }
+      @case ('signed-in') {
+        <app-join (join)="openChat($event)" />
+      }
+    }
+  </main>
+}
