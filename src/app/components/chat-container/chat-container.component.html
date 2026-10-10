@@ -1,0 +1,37 @@
+<header class="header">
+  <button type="button" class="back-button" aria-label="Back" (click)="leave.emit()">
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  </button>
+  <h1>Chat</h1>
+  <button type="button" class="copy-button" (click)="copyThreadId()">
+    {{ copied() ? 'Copied' : 'Copy Thread ID' }}
+  </button>
+</header>
+
+@if (error(); as message) {
+  <div class="state error" role="alert">{{ message }}</div>
+} @else if (!ready()) {
+  <div class="state" role="status">Connecting…</div>
+} @else {
+  <app-message-list
+    class="message-list"
+    [messages]="chatService.messages()"
+    [readMessageIds]="chatService.readMessageIds()"
+  />
+  <app-typing-indicator [typingUsers]="chatService.typingUsers()" />
+  @if (sendFailed()) {
+    <p class="send-error" role="alert">Couldn't send that message. Check your connection and try again.</p>
+  }
+  <app-message-input (send)="onSend($event)" (typing)="onTyping()" />
+}
