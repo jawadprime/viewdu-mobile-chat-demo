@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--vdu-color-bg);
+  color: var(--vdu-color-text);
+  font-family:
+    system-ui,
+    -apple-system,
+    Roboto,
+    'Segoe UI',
+    sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.vdu-button {
+  min-height: 3rem;
+  padding-inline: var(--vdu-space-4);
+  border: none;
+  border-radius: var(--vdu-radius-md);
+  background: var(--vdu-color-primary);
+  color: var(--vdu-color-primary-contrast);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.vdu-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

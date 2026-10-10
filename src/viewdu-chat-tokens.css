@@ -1,0 +1,60 @@
+/*
+ * Copyright (c) Cashikoi. All rights reserved.
+ * This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
+ */
+/* Design tokens for the chat feature only, prefixed with --vdu- to avoid clashing with anything
+   else in the app (this repo doesn't have a CSS custom-property token system elsewhere, it uses
+   SCSS $vd-* variables instead - these are scoped to viewdu-chat components specifically). */
+:root {
+  --vdu-color-bg: #ffffff;
+  --vdu-color-surface: #f4f5f7;
+  --vdu-color-surface-hover: #ebedf0;
+  --vdu-color-border: #e1e3e8;
+  --vdu-color-text: #1a1d21;
+  --vdu-color-text-muted: #6b7280;
+  --vdu-color-primary: #3457d5;
+  --vdu-color-primary-contrast: #ffffff;
+  --vdu-color-own-bubble: #3457d5;
+  --vdu-color-other-bubble: #f0f1f4;
+  --vdu-color-danger: #d1373f;
+
+  --vdu-space-1: 0.25rem;
+  --vdu-space-2: 0.5rem;
+  --vdu-space-3: 0.75rem;
+  --vdu-space-4: 1rem;
+  --vdu-space-6: 1.5rem;
+
+  --vdu-radius-sm: 0.375rem;
+  --vdu-radius-md: 0.75rem;
+  --vdu-radius-full: 999px;
+
+  --vdu-font-size-sm: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --vdu-font-size-md: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+
+  --vdu-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+
+  --vdu-motion-fast: 120ms;
+  --vdu-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vdu-color-bg: #16181c;
+    --vdu-color-surface: #1f2228;
+    --vdu-color-surface-hover: #282c34;
+    --vdu-color-border: #33373f;
+    --vdu-color-text: #eef0f3;
+    --vdu-color-text-muted: #9aa0aa;
+    --vdu-color-primary: #6c8cff;
+    --vdu-color-primary-contrast: #0b0d10;
+    --vdu-color-own-bubble: #6c8cff;
+    --vdu-color-other-bubble: #262a31;
+    --vdu-color-danger: #ff6b6b;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --vdu-motion-fast: 0ms;
+  }
+}
