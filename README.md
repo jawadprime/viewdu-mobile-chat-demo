@@ -57,8 +57,6 @@ func start --cors "*"
 
 `--cors "*"` is needed because the app runs in a WebView and calls the API from another origin.
 
-Run the tests with `npm test`.
-
 ## Try it
 
 You need two people in one chat, so use two accounts.
